@@ -233,16 +233,6 @@
       ]
     },
     {
-      "tag":"ShouHou",
-      "type":"selector",
-      "outbounds":[
-        "{all}"
-      ],
-      "filter":[
-        {"action":"include","keywords":["S_"]}
-      ]
-    },
-    {
       "tag":"HongKong",
       "type":"selector",
       "outbounds":[
@@ -359,38 +349,24 @@
           "clash.razord.top",
           "yacd.metacubex.one",
           "yacd.haishan.me",
-          "d.metacubex.one"
+          "d.metacubex.one",
+          "linux.do",
+          "blog.iouo.top"
         ],
         "outbound": "direct"
       },
       {
-        "domain": [
-          "hanime1.me",
-          "linux.do"
-        ],
         "domain_suffix": [
-          ".hanime1.me",
-          ".linux.do"
+          "hanime1.me"
         ],
         "outbound": "HongKong"
       },
       {
-        "domain": [
+        "domain_suffix": [
           "deepl.com"
         ],
-        "domain_suffix": [
-          ".deepl.com"
-        ],
-        "outbound": "HongKong"
+        "outbound": "Germany"
       },
-      {
-        "domain": [
-          "emby.cn2gias.uk",
-          "post.cn2gias.uk"
-        ],
-        "outbound": "ShouHou"
-      },
-
       {
         "rule_set": "geosite-openai",
         "outbound": "OpenAI"
