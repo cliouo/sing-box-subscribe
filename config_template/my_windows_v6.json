@@ -5,7 +5,7 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "127.0.0.1:9091",
+      "external_controller": "0.0.0.0:9091",
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://proxy.8908900.xyz/proxy/github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
@@ -82,8 +82,10 @@
     {
       "tag": "tun",
       "type": "tun",
-      "inet4_address": "172.19.0.0/30",
-      "inet6_address": "fdfe:dcba:9876::0/126",
+      "address": [
+        "172.19.0.0/30",
+        "fdfe:dcba:9876::0/126"
+      ],
       "stack": "mixed",
       "auto_route": true,
       "sniff": true,
@@ -91,16 +93,22 @@
         "http_proxy": {
           "enabled": true,
           "server": "127.0.0.1",
-          "server_port": 7890
+          "server_port": 7891
         }
       }
     },
     {
       "tag": "mixed",
       "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7890,
+      "listen": "0.0.0.0",
+      "listen_port": 7891,
       "sniff": true
+    },
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "0.0.0.0",
+      "listen_port": 2053
     }
   ],
   "outbounds": [
@@ -335,16 +343,7 @@
     "final": "Proxy",
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules":[
-          {
-            "port":53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
+        "inbound": "dns-in",
         "outbound": "dns-out"
       },
       {
