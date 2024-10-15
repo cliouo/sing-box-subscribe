@@ -118,6 +118,7 @@
       "outbounds":[
         "auto",
         "direct",
+        "HongKong",
         "TaiWan",
         "Singapore",
         "Japan",
